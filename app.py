@@ -16,10 +16,15 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = Flask(__name__, template_folder='templates', static_folder='assets')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 #all the code down
 @app.route("/",methods=['Get','Post'])
 def homepage():
     return render_template("index.html")
+
+
+#all the code up
+if __name__ == '__main__':
+    app.run(debug=True)
